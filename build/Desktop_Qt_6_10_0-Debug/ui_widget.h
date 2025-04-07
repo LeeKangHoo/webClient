@@ -1,31 +1,30 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindow.ui'
+** Form generated from reading UI file 'widget.ui'
 **
-** Created by: Qt User Interface Compiler version 6.9.0
+** Created by: Qt User Interface Compiler version 6.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MAINWINDOW_H
-#define UI_MAINWINDOW_H
+#ifndef UI_WIDGET_H
+#define UI_WIDGET_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_Widget
 {
 public:
-    QWidget *centralwidget;
+    QRadioButton *rbTcp;
+    QRadioButton *rbSsl;
     QWidget *widget;
     QGridLayout *gridLayout;
     QPushButton *pbConnect;
@@ -36,19 +35,24 @@ public:
     QPlainTextEdit *pteSend;
     QPlainTextEdit *pteMessage;
     QPushButton *pbSend;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QWidget *Widget)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(454, 488);
-        centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName("centralwidget");
-        widget = new QWidget(centralwidget);
+        if (Widget->objectName().isEmpty())
+            Widget->setObjectName("Widget");
+        Widget->resize(386, 600);
+        rbTcp = new QRadioButton(Widget);
+        rbTcp->setObjectName("rbTcp");
+        rbTcp->setGeometry(QRect(270, 30, 109, 24));
+        rbTcp->setChecked(true);
+        rbSsl = new QRadioButton(Widget);
+        rbSsl->setObjectName("rbSsl");
+        rbSsl->setGeometry(QRect(270, 70, 109, 24));
+        rbSsl->setAutoFillBackground(false);
+        rbSsl->setChecked(false);
+        widget = new QWidget(Widget);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(61, 44, 344, 456));
+        widget->setGeometry(QRect(10, 30, 258, 488));
         gridLayout = new QGridLayout(widget);
         gridLayout->setObjectName("gridLayout");
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -59,6 +63,7 @@ public:
 
         pbDisconnect = new QPushButton(widget);
         pbDisconnect->setObjectName("pbDisconnect");
+        pbDisconnect->setEnabled(false);
 
         gridLayout->addWidget(pbDisconnect, 0, 1, 1, 2);
 
@@ -90,43 +95,37 @@ public:
         pbSend = new QPushButton(widget);
         pbSend->setObjectName("pbSend");
 
-        gridLayout->addWidget(pbSend, 3, 4, 1, 1);
+        gridLayout->addWidget(pbSend, 4, 0, 1, 1);
 
-        MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 454, 23));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
 
-        retranslateUi(MainWindow);
+        retranslateUi(Widget);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(Widget);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QWidget *Widget)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pbConnect->setText(QCoreApplication::translate("MainWindow", "Connect", nullptr));
-        pbDisconnect->setText(QCoreApplication::translate("MainWindow", "Disconnect", nullptr));
-        pbClear->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
-        leHost->setText(QCoreApplication::translate("MainWindow", "naver.com", nullptr));
-        lePort->setText(QCoreApplication::translate("MainWindow", "80", nullptr));
-        pteSend->setPlainText(QCoreApplication::translate("MainWindow", "GET / HTTP/1.1\n"
-"Host : naver.com \n"
+        Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
+        rbTcp->setText(QCoreApplication::translate("Widget", "tcpSocket", nullptr));
+        rbSsl->setText(QCoreApplication::translate("Widget", "sslSocket", nullptr));
+        pbConnect->setText(QCoreApplication::translate("Widget", "Connect", nullptr));
+        pbDisconnect->setText(QCoreApplication::translate("Widget", "Disconnect", nullptr));
+        pbClear->setText(QCoreApplication::translate("Widget", "Clear", nullptr));
+        leHost->setText(QCoreApplication::translate("Widget", "www.naver.com", nullptr));
+        lePort->setText(QCoreApplication::translate("Widget", "443", nullptr));
+        pteSend->setPlainText(QCoreApplication::translate("Widget", "GET / HTTP/1.1\n"
+"HOST:www.naver.com\n"
 "\n"
 "", nullptr));
-        pbSend->setText(QCoreApplication::translate("MainWindow", "Send", nullptr));
+        pbSend->setText(QCoreApplication::translate("Widget", "send", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class Widget: public Ui_Widget {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_MAINWINDOW_H
+#endif // UI_WIDGET_H
